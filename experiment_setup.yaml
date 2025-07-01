@@ -1,0 +1,76 @@
+task_type: classification
+seed: 1
+max_epoch: 50
+batch_size: 1024
+gpus: [2,3]
+cross_val_count: 1
+
+datasets:
+  - name: SEA_50
+  - name: hcdr_main
+    batch_size: 512
+  - name: SantanderCustomerSatisfaction
+    batch_size: 512
+  - name: imdb_drama
+    batch_size: 512
+  # - name: default_of_credit_card_clients
+  #   batch_size: 512
+  # - name: philippine
+  #   batch_size: 128
+  # - name: INNHotelsGroup
+  # - name: taiwanese_bankruptcy_prediction
+  #   batch_size: 512
+  # - name: naticusdroid+android+permissions+dataset
+  #   batch_size: 512
+  # - name: dabetes_130-us_hospitals
+  # - name: Cardiovascular-Disease-dataset
+  # - name: FOREX_audsgd-hour-High
+
+
+
+too_large_datasets:
+  [
+    imdb_drama,
+    hcdr_main,
+    SantanderCustomerSatisfaction
+  ]
+
+high_scores_datasets:
+  [
+    customer_satisfaction_in_airline,
+    Telecom_Churn_Dataset,
+    adult,
+    electricity,
+    mobile_c36_oversampling,
+    bank,
+  ]
+
+datsets_to_renew:
+  [
+    default_of_credit_card_clients,
+    philippine,
+    INNHotelsGroup,
+    taiwanese_bankruptcy_prediction,
+    naticusdroid+android+permissions+dataset,
+  ]
+
+models:
+  - name: t2gformer
+  - name: tabr
+  - name: amformer
+  - name: modernNCA
+  - name: danets
+  - name: tabm
+  - name: mlp_plr
+  - name: PFN-v2
+  - name: realmlp
+  - name: tabnet
+  - name: tangos
+  - name: tabcaps
+
+
+  # - name: excelformer
+  # - name: protogate
+  # - name: grande
+  # - name: trompt
+  # - name: bishop
