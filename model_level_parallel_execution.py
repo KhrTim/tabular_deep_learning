@@ -68,7 +68,7 @@ def process_model_on_gpus(gpu_ids, model, experimental_setup):
                     "--max_epoch", str(experimental_setup["max_epoch"]),
                     "--model_type", model_name,
                     "--batch_size", str(batch_size),
-                    "--gpu", gpu_ids[0],
+                    "--gpu", str(gpu_ids[0]),
                     "--cross_val_fold", str(fold),
                 ]
 
@@ -83,8 +83,6 @@ def process_model_on_gpus(gpu_ids, model, experimental_setup):
                     args_list += ["--normalization", "none"]
 
                 args, _, _ = get_deep_args(args_list)
-                print("ARGS")
-                print(args)
 
                 if log_to_mlflow:
                     for k, v in vars(args).items():
@@ -109,6 +107,9 @@ def process_model_on_gpus(gpu_ids, model, experimental_setup):
                     mlflow.log_param("num_features", num_fea)
 
                 save_results_to_csv = experimental_setup.get("save_results_to_csv", False)  # <- default: log
+                if save_results_to_csv:
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!! RESULTS WILL BE SAVED TO THE CSV FILE !!!!!!!!!!!!!!!!!!!!!!!!!")
+
                 if not save_results_to_csv:
                     start_time = time.time()
                     vl, vres, metric_name, _ = method.predict(test_data, info, model_name=args.evaluate_option)
@@ -169,6 +170,8 @@ if __name__ == "__main__":
     single_gpu_matching_models = [m for m in experimental_setup['models'] if m.get('name') not in multi_gpu_models]
 
     gpu_ids = experimental_setup['gpus']
+    if not isinstance(gpu_ids, list):
+        gpu_ids = list(gpu_ids)
 
     if multi_gpu_matching_models:
         for model in multi_gpu_matching_models:
