@@ -1,0 +1,28 @@
+seed: 1
+max_epoch: 50
+batch_size: 1024
+gpus: [2,3]
+cross_val_count: 1
+log_to_mlflow: False
+save_results_to_csv: True
+
+datasets:
+  - name: default_of_credit_card_clients
+    batch_size: 512
+  - name: philippine
+    batch_size: 128
+  - name: INNHotelsGroup
+  - name: taiwanese_bankruptcy_prediction
+    batch_size: 512
+  - name: naticusdroid+android+permissions+dataset
+    batch_size: 512
+  - name: dabetes_130-us_hospitals
+  - name: Cardiovascular-Disease-dataset
+  - name: FOREX_audsgd-hour-High
+
+models:
+  - name: amformer
+  - name: danets
+  - name: modernNCA
+  - name: t2gformer
+  - name: tabr

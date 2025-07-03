@@ -4,9 +4,10 @@ max_epoch: 50
 batch_size: 1024
 gpus: [2,3]
 cross_val_count: 1
+log_to_mlflow: True
 
 datasets:
-  - name: SEA_50
+  # - name: SEA_50
   - name: hcdr_main
     batch_size: 512
   - name: SantanderCustomerSatisfaction
