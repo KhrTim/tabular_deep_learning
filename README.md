@@ -9,6 +9,9 @@ git clone --recursive git@github.com:KhrTim/tabular_deep_learning.git
 cd tabular_deep_learning
 chmod +x setup_project.sh
 ./setup_project.sh
+
+conda activate talent
+pip install -e TALENT
 ```
 
 ---
