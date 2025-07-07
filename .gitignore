@@ -1,3 +1,4 @@
 data/**
 mlruns/**
 results_model/**
+**/__pycache__/**

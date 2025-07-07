@@ -2,10 +2,8 @@ seed: 1
 max_epoch: 50
 batch_size: 1024
 gpus: [0,1]
-cross_val_count: 1
-log_to_mlflow: False
-save_results_to_csv: True
-eval_only: True
+cross_val_count: 5
+log_to_mlflow: True
 
 datasets:
   - name: SantanderCustomerSatisfaction
@@ -25,8 +23,16 @@ datasets:
   - name: imdb_drama
 
 models:
-  - name: tabr
   - name: amformer
-  - name: danets
   - name: modernNCA
+  - name: tabr
+  - name: danets
+  - name: mlp_plr
+  - name: PFN-v2
+  - name: realmlp
   - name: t2gformer
+  - name: tabm
+  - name: tabnet
+  - name: tangos
+  - name: tabcaps
+
